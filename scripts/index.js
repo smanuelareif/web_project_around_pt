@@ -28,3 +28,49 @@ const initialCards = [
 initialCards.forEach(function (card) {
   console.log(card.name);
 });
+
+const editButton = document.querySelector(".profile__edit-button");
+const closeButton = document.querySelector("#edit-popup .popup__close");
+const editModal = document.querySelector("#edit-popup");
+
+const profileName = document.querySelector(".profile__title");
+const profileDescription = document.querySelector(".profile__description");
+const formName = document.querySelector(".popup__input_type_name");
+const formDescription = document.querySelector(
+  ".popup__input_type_description",
+);
+const profileForm = document.querySelector("#edit-profile-form");
+
+function openModal(modal) {
+  modal.classList.add("popup_is-opened");
+}
+
+function closeModal(modal) {
+  modal.classList.remove("popup_is-opened");
+}
+
+editButton.addEventListener("click", handleOpenEditModal);
+closeButton.addEventListener("click", function () {
+  closeModal(editModal);
+});
+
+function fillProfileForm() {
+  formName.value = profileName.textContent;
+  formDescription.value = profileDescription.textContent;
+}
+
+function handleOpenEditModal() {
+  fillProfileForm();
+  openModal(editModal);
+}
+
+function handleProfileFormSubmit(evt) {
+  evt.preventDefault();
+
+  profileName.textContent = formName.value;
+  profileDescription.textContent = formDescription.value;
+
+  closeModal(editModal);
+}
+
+profileForm.addEventListener("submit", handleProfileFormSubmit);
