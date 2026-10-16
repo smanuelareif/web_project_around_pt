@@ -21,4 +21,4 @@ Este projeto é uma página web interativa que apresenta cartões com imagens de
 
 ## GitHub Pages
 
-Link do projeto: (adicione aqui o link do GitHub Pages quando o projeto estiver publicado)
+Link do projeto: (https://smanuelareif.github.io/web_project_around_pt/)
