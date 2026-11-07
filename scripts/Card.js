@@ -1,5 +1,9 @@
 import { openModal } from "./utils.js";
 
+const imageModal = document.querySelector("#image-popup");
+const imageModalImage = imageModal.querySelector(".popup__image");
+const imageModalCaption = imageModal.querySelector(".popup__caption");
+
 export default class Card {
   constructor(data, templateSelector) {
     this._name = data.name;
@@ -39,10 +43,6 @@ export default class Card {
   }
 
   _setEventListeners() {
-    const imageModal = document.querySelector("#image-popup");
-    const imageModalImage = imageModal.querySelector(".popup__image");
-    const imageModalCaption = imageModal.querySelector(".popup__caption");
-
     const likeButton = this._element.querySelector(".card__like-button");
     likeButton.addEventListener("click", () => {
       this._handleLikeClick();
