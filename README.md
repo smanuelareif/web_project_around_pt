@@ -4,19 +4,30 @@
 
 ## Descrição do projeto
 
-Este projeto é uma página web interativa que apresenta cartões com imagens de diferentes lugares. O usuário pode adicionar novos cartões com nome e link de imagem, curtir e excluir cartões, visualizar imagens em tamanho ampliado e editar o nome e a descrição do perfil. O projeto também conta com validação personalizada dos formulários, com mensagens de erro e controle do estado dos botões.
+Este projeto consiste em uma página web interativa que apresenta cartões com imagens de diferentes lugares. O usuário pode editar o nome e a descrição do perfil, adicionar novos cartões informando um nome e um link de imagem, curtir e excluir cartões e visualizar as imagens em tamanho ampliado.
+
+Nesta etapa do projeto, o código foi refatorado utilizando Programação Orientada a Objetos (POO) e módulos JavaScript. Foram criadas duas classes principais:
+
+- Card: responsável pela criação dos cartões, configuração de seus elementos e gerenciamento dos eventos de curtida, exclusão e visualização das imagens.
+
+- FormValidator: responsável pela validação dos formulários, exibição de mensagens de erro e controle do estado dos botões de envio.
+
+Também foram organizadas funções auxiliares em um módulo separado (utils.js), responsáveis pelo gerenciamento da abertura e do fechamento dos pop-ups, incluindo o fechamento pela tecla Escape e pelo clique fora da janela.
 
 ## Tecnologias e técnicas utilizadas
 
 - HTML5 para estruturação da página;
 - CSS3 para estilização;
-- JavaScript para adicionar interatividade e manipular os elementos da página;
-- Metodologia BEM para organização das classes;
+- JavaScript ES6 para adicionar interatividade e organizar o código;
+- Programação Orientada a Objetos (POO) com classes e métodos;
+- Módulos JavaScript (import e export) para separar e organizar o código;
+- Metodologia BEM para organização das classes CSS;
 - Flexbox e Grid Layout para alinhamento e organização dos elementos;
 - Media queries para criar um layout responsivo;
 - Figma como referência para implementação do design;
 - Manipulação do DOM e gerenciamento de eventos;
-- Validação de formulários com mensagens de erro personalizadas;
+- Template HTML e clonagem de elementos para criação dinâmica dos cartões;
+- Validação de formulários utilizando a API de validação HTML5 (ValidityState);
 - Git e GitHub para versionamento do código.
 
 ## GitHub Pages
