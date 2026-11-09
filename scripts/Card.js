@@ -1,14 +1,9 @@
-import { openModal } from "./utils.js";
-
-const imageModal = document.querySelector("#image-popup");
-const imageModalImage = imageModal.querySelector(".popup__image");
-const imageModalCaption = imageModal.querySelector(".popup__caption");
-
 export default class Card {
-  constructor(data, templateSelector) {
+  constructor(data, templateSelector, handleImageClick) {
     this._name = data.name;
     this._link = data.link;
     this._templateSelector = templateSelector;
+    this._handleImageClick = handleImageClick;
   }
 
   _getTemplate() {
@@ -55,11 +50,7 @@ export default class Card {
 
     const cardImage = this._element.querySelector(".card__image");
     cardImage.addEventListener("click", () => {
-      imageModalImage.src = this._link;
-      imageModalImage.alt = this._name;
-      imageModalCaption.textContent = this._name;
-
-      openModal(imageModal);
+      this._handleImageClick(this._name, this._link);
     });
   }
 

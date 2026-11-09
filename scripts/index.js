@@ -62,6 +62,8 @@ const profileForm = document.querySelector("#edit-profile-form");
 
 const imageModal = document.querySelector("#image-popup");
 const imageModalCloseButton = imageModal.querySelector(".popup__close");
+const imageModalImage = imageModal.querySelector(".popup__image");
+const imageModalCaption = imageModal.querySelector(".popup__caption");
 
 const cardsList = document.querySelector(".cards__list");
 
@@ -71,12 +73,22 @@ const profileFormValidator = new FormValidator(settings, profileForm);
 newCardFormValidator.setEventListeners();
 profileFormValidator.setEventListeners();
 
-initialCards.forEach(function (card) {
-  const cardElement = new Card(card, "#card-template");
+function createCard(data) {
+  const cardElement = new Card(data, "#card-template", handleImageClick);
   const cardView = cardElement.getView();
 
   cardsList.prepend(cardView);
-});
+}
+
+initialCards.forEach(createCard);
+
+function handleImageClick(name, link) {
+  imageModalImage.src = link;
+  imageModalImage.alt = name;
+  imageModalCaption.textContent = name;
+
+  openModal(imageModal);
+}
 
 function handleOpenNewCardModal() {
   newCardForm.reset();
@@ -96,11 +108,8 @@ function handleCardFormSubmit(evt) {
   const name = newCardName.value;
   const link = newCardLink.value;
   const cardData = { name: name, link: link };
-  const cardElement = new Card(cardData, "#card-template");
-  const cardView = cardElement.getView();
 
-  cardsList.prepend(cardView);
-
+  createCard(cardData);
   closeModal(newCardModal);
 }
 
